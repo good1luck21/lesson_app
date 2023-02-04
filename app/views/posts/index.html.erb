@@ -5,17 +5,13 @@
         <%= f.text_field :content %>
         <%= f.submit %>
     <% end %>
-    <from>
-        <textarea></textarea>
-        <input type="submit" value="投稿" />
-    </from>
 </div>
 
 <div>
     <h2>投稿一覧</h2>
     <div id="post-list">
         <% @posts.each do|post| %>
-            <p><%= link_to post.content, "/edit" %></p>
+            <p><%= link_to post.content,posts_edit_path(post.id) %></p>
         <% end %>
     </div>
 </div>

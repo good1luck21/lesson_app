@@ -1,7 +1,7 @@
 <h1>Edit Page</h1>
-<form>
-    <textarea rows="10" cols="50">クリックした一覧画面のコンテントの内容が入る</textarea>
-    <input type="submit" />
-</form>
+<%= form_for @post, url: posts_update_path(@post.id) do |f| %>
+    <textarea name="kang"><%= @post.content %></textarea>
+    <%= f.submit %>
+<% end %>
 
 <a>Go to the top</a>
