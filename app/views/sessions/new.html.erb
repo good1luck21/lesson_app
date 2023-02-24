@@ -1,0 +1,8 @@
+<h1>Sign In</h1>
+<%= form_with url: login_path do |f| %>
+    <label for="email">Name</label><br />
+    <%= f.text_field :name %><br />
+    <label for="password">Password</label><br />
+    <%= f.text_field :password %>
+    <%= f.submit "Sign In" %>
+<% end %>

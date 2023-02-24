@@ -15,12 +15,13 @@ class PostsController < ApplicationController
   end
   
   def create
-    p "==========params check============"
-    p params
-    p "======================"
-    @post = Post.new(content: params[:post][:content])
-    @post.save
-    redirect_to root_path
+    user = User.find(session[:user_id])
+    @post = user.posts.build(content: params[:post][:content])
+    if @post.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
   def update
       @post=Post.find_by(id: params[:sato]) # params[:sato] -> :sato routes.rb patch 'posts/:sato/edit'
